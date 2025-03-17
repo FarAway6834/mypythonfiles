@@ -1,5 +1,5 @@
 from tempfile import TemporaryDirectory as __tempdir__
-from os.path import getcwd as __pwd__
+from os import getcwd as __pwd__
 from contextlib import contextmanager as __withibler__
 
 class __tempdirman__:
