@@ -4,7 +4,6 @@ from contextlib import contextmanager as __withibler__
 
 class __tempdirman__:
 	__slots__ = ('__tempdir', '__maindir')
-tempdir, maindir
 	
 	def __init__(self, tempdir, maindir):
 		self.__tempdir, self.__maindir = tempdir, maindir
