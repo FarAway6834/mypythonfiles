@@ -4,10 +4,10 @@ from tarfile import open as tar
 o = open
 
 def gentz(s):
-	def tz(file, mode = 'r', wv = f'w:{s}z', rv = f'r:{s}z', r = 'r', w = 'w'):
+	def tz(file, mode = 'r', wv = f'w:{s}z', rv = f'r:{s}z'):
 		match mode:
-			case r: mode = rv;
-			case w: mode = wv;
+			case 'r': mode = rv;
+			case 'w': mode = wv;
 			case _: pass
 		return tar(file, mode)
 	tz.__name__ = f't{s}z'
