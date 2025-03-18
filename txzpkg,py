@@ -1,17 +1,7 @@
 #inspired by [yours](https://github.com/FarAway6834/txzpkg)
 
-from mytempdir import tempdir, cd, ls, mkdir
+from mytempdir import tempdir, cd, ls, mkdir, enterdir, tedir
 from myarcopen import open
-
-def enterdir(dir, back):
-    cd(dir)
-    yield None
-    cd(back)
-
-def tedir(dir, back):
-    mkdir(dir)
-    with enterdir(dir) as man:
-      yield man
 
 def txzip(f):
     with tempdir() as dir:
