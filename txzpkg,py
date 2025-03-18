@@ -24,4 +24,5 @@ def untxz(f):
 					with open(f, 'w') as arc:
 						cd(dir.tempdir)
 						with enterdir(f, dir.tempdir) as man1:
-							s
+							for f in ls():
+								arc.add(f)
