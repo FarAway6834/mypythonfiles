@@ -33,5 +33,5 @@ def enterdir(dir, back):
 @__withibler__
 def tedir(dir, back):
 	mkdir(dir)
-	with enterdir(dir) as man:
+	with enterdir(dir, back) as man:
 		yield man
