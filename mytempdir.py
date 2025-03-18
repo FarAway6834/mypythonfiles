@@ -24,11 +24,13 @@ def tempdir():
 	with __tempdir__() as dir:
 		yield __tempdirman__(dir, __pwd__())
 
+@__withibler__
 def enterdir(dir, back):
 	cd(dir)
 	yield None
 	cd(back)
 
+@__withibler__
 def tedir(dir, back):
 	mkdir(dir)
 	with enterdir(dir) as man:
