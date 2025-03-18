@@ -1,6 +1,6 @@
 #inspired by [yours](https://github.com/FarAway6834/txzpkg)
 
-from mytempdir import tempdir, ls, enterdir, tedir
+from mytempdir import tempdir, cd, ls, enterdir, tedir
 from myarcopen import open
 
 def txzip(f):
@@ -8,16 +8,20 @@ def txzip(f):
 		files = ls()
 		with open(f, 'w') as txz:
 			for f in files:
-				with open(f) as fp:
+				with open(f) as arc:
 					with enterdir(txz.temp, txz.main) as man0:
 						with tedir(f, txz.temp) as man1:
-							fp.extractall()
+							arc.extractall()
 						txz.add(f)
 
 def untxz(f):
 	with tempdir() as dir:
 		with open(f) as txz:
-			with enterdir(dir.tempdir, dir.maindir) as man:
+			with enterdir(dir.tempdir, dir.maindir) as man0:
 				txz.extractall()
 				for f in ls():
-					with open(
+					cd(dir.maindir)
+					with open(f, 'w') as arc:
+						cd(dir.tempdir)
+						with enterdir(f, dir.tempdir) as man1:
+							s
