@@ -1,5 +1,8 @@
 from tempfile import TemporaryDirectory as __tempdir__
 from os import getcwd as __pwd__
+from os import chdir as cd
+from os import listdir as ls
+from os import mkdir
 from contextlib import contextmanager as __withibler__
 
 class __tempdirman__:
