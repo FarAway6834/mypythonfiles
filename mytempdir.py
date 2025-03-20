@@ -1,5 +1,8 @@
 from tempfile import TemporaryDirectory as __tempdir__
 from os import getcwd as __pwd__
+from os import chdir as cd
+from os import listdir as ls
+from os import mkdir
 from contextlib import contextmanager as __withibler__
 
 class __tempdirman__:
@@ -20,3 +23,15 @@ class __tempdirman__:
 def tempdir():
 	with __tempdir__() as dir:
 		yield __tempdirman__(dir, __pwd__())
+
+@__withibler__
+def enterdir(dir, back):
+	cd(dir)
+	yield None
+	cd(back)
+
+@__withibler__
+def tedir(dir, back):
+	mkdir(dir)
+	with enterdir(dir, back) as man:
+		yield man
